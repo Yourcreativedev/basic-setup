@@ -1,4 +1,4 @@
-#! /bin/bash1
+#! /bin/bash
 
 #Updating packages
 sudo pacman -Syu
@@ -10,9 +10,15 @@ sudo pacman -S yay
 yay -S google-chrome
 
 # installing snap package manager
-sudo pacman -S snapd
-sudo systemctl enable --now snapd.socket    
+git clone https://aur.archlinux.org/snapd.git
+cd snapd
+makepkg -si
+
+sudo systemctl enable --now snapd.socket
+
 sudo ln -s /var/lib/snapd/snap /snap
+
+sudo snap install snap-store
 
 # installing node 
 sudo snap install node --classic
@@ -24,4 +30,3 @@ node --version
 
 # installing Vscode
 sudo snap install code --classic
-

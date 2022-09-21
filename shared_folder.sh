@@ -1,5 +1,5 @@
 #! /bin/bash
 
 read -p "Username : " username
-read -p "Folder path : " path
-sudo chown -R $username $path
+sudo usermod -a -G vboxsf $username
+sudo chown -R $username:users /media/sf_SharedVM
